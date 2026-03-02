@@ -1,12 +1,13 @@
 package hexlet.code;
 
+import java.security.SecureRandom;
 import java.util.Random;
 import java.util.Scanner;
 
 public class EvenGame implements Game {
     private static final int BOUND = 100;
     private static final int ROUNDS_COUNT = 3;
-    private final Random random = new Random();
+    private final Random random = new SecureRandom();
 
     @Override
     public void run(Scanner scanner, String name) {
