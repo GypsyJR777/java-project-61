@@ -6,11 +6,11 @@ import java.util.Scanner;
 public class EvenGame implements Game {
     private static final int BOUND = 100;
     private static final int ROUNDS_COUNT = 3;
+    private final Random random = new Random();
 
     @Override
     public void run(Scanner scanner, String name) {
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-        Random random = new Random();
         for (int round = 0; round < ROUNDS_COUNT; round++) {
             int number = random.nextInt(BOUND);
             String correctAnswer = number % 2 == 0 ? "yes" : "no";
