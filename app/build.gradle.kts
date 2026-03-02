@@ -1,6 +1,6 @@
 plugins {
-//    id("java")
     application
+    id("org.sonarqube") version "7.1.0.6387"
 }
 
 group = "hexlet.code"
@@ -39,4 +39,11 @@ application {
 
 tasks.getByName("run", JavaExec::class) {
     standardInput = System.`in`
+}
+
+sonar {
+    properties {
+        property("sonar.projectKey", "GypsyJR777_java-project-61")
+        property("sonar.organization", "gypsyjr777")
+    }
 }
