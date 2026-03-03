@@ -5,7 +5,7 @@ import java.util.stream.IntStream;
 public class PrimeGame implements Game {
     @Override
     public String getRule() {
-        return YES_NO_ANSWER;
+        return "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     }
 
     @Override

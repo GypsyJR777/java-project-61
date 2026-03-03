@@ -3,7 +3,7 @@ package hexlet.code.games;
 public class EvenGame implements Game {
     @Override
     public String getRule() {
-        return YES_NO_ANSWER;
+        return "Answer 'yes' if the number is even, otherwise answer 'no'.";
     }
 
     @Override
