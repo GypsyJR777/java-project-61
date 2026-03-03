@@ -1,13 +1,9 @@
 package hexlet.code.games;
 
-import java.security.SecureRandom;
-import java.util.Random;
-
 public class ProgressionGame implements Game {
     private static final int PROGRESSION_LENGTH = 10;
     private static final int START_BOUND = 100;
     private static final int STEP_BOUND = 10;
-    private final Random random = new SecureRandom();
     private int hiddenValue;
 
     @Override
@@ -17,9 +13,9 @@ public class ProgressionGame implements Game {
 
     @Override
     public String getQuestion() {
-        int start = random.nextInt(START_BOUND);
-        int step = random.nextInt(STEP_BOUND) + 1;
-        int hiddenIndex = random.nextInt(PROGRESSION_LENGTH);
+        int start = RANDOM.nextInt(START_BOUND);
+        int step = RANDOM.nextInt(STEP_BOUND) + 1;
+        int hiddenIndex = RANDOM.nextInt(PROGRESSION_LENGTH);
         int[] progression = buildProgression(start, step);
         hiddenValue = progression[hiddenIndex];
 

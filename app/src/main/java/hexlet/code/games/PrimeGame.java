@@ -1,21 +1,16 @@
 package hexlet.code.games;
 
-import java.security.SecureRandom;
-import java.util.Random;
 import java.util.stream.IntStream;
 
 public class PrimeGame implements Game {
-    private static final int MAX_NUMBER = 100;
-    private final Random random = new SecureRandom();
-
     @Override
     public String getRule() {
-        return "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+        return YES_NO_ANSWER;
     }
 
     @Override
     public String getQuestion() {
-        return String.valueOf(random.nextInt(MAX_NUMBER));
+        return String.valueOf(RANDOM.nextInt(MAX_NUMBER));
     }
 
     @Override

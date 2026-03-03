@@ -1,12 +1,7 @@
 package hexlet.code.games;
 
-import java.security.SecureRandom;
-import java.util.Random;
-
 public class CalcGame implements Game {
-    private static final int MAX_NUMBER = 100;
     private static final char[] OPERATIONS = {'+', '-', '*'};
-    private final Random random = new SecureRandom();
 
     @Override
     public String getRule() {
@@ -15,9 +10,9 @@ public class CalcGame implements Game {
 
     @Override
     public String getQuestion() {
-        int left = random.nextInt(MAX_NUMBER);
-        int right = random.nextInt(MAX_NUMBER);
-        char operation = OPERATIONS[random.nextInt(OPERATIONS.length)];
+        int left = RANDOM.nextInt(MAX_NUMBER);
+        int right = RANDOM.nextInt(MAX_NUMBER);
+        char operation = OPERATIONS[RANDOM.nextInt(OPERATIONS.length)];
         return left + " " + operation + " " + right;
     }
 

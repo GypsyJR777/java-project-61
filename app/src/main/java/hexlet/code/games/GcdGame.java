@@ -1,12 +1,6 @@
 package hexlet.code.games;
 
-import java.security.SecureRandom;
-import java.util.Random;
-
 public class GcdGame implements Game {
-    private static final int MAX_NUMBER = 100;
-    private final Random random = new SecureRandom();
-
     @Override
     public String getRule() {
         return "Find the greatest common divisor of given numbers.";
@@ -14,8 +8,8 @@ public class GcdGame implements Game {
 
     @Override
     public String getQuestion() {
-        int first = random.nextInt(MAX_NUMBER);
-        int second = random.nextInt(MAX_NUMBER);
+        int first = RANDOM.nextInt(MAX_NUMBER);
+        int second = RANDOM.nextInt(MAX_NUMBER);
         return first + " " + second;
     }
 
