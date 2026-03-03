@@ -9,3 +9,7 @@
 ### Even Demo
 
 [![asciicast](https://asciinema.org/a/wt4ZJfPzcwDjthh1.svg)](https://asciinema.org/a/wt4ZJfPzcwDjthh1)
+
+### Calc Demo
+
+[![asciicast](https://asciinema.org/a/JoVNEuG52Luj1JVp.svg)](https://asciinema.org/a/JoVNEuG52Luj1JVp)
