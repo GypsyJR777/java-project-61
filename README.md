@@ -12,4 +12,8 @@
 
 ### Calc Demo
 
-[![asciicast](https://asciinema.org/a/JoVNEuG52Luj1JVp.svg)](https://asciinema.org/a/JoVNEuG52Luj1JVp)
+[![asciicast](https://asciinema.org/a/2sBnTvpuAlteabd1.svg)](https://asciinema.org/a/2sBnTvpuAlteabd1)
+
+### GCD Demo
+
+[![asciicast](https://asciinema.org/a/LNGNwaowH22yQwtq.svg)](https://asciinema.org/a/LNGNwaowH22yQwtq)
