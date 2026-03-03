@@ -17,3 +17,7 @@
 ### GCD Demo
 
 [![asciicast](https://asciinema.org/a/LNGNwaowH22yQwtq.svg)](https://asciinema.org/a/LNGNwaowH22yQwtq)
+
+### Progression Demo
+
+[![asciicast](https://asciinema.org/a/ejNl9CGAxuoF7z89.svg)](https://asciinema.org/a/ejNl9CGAxuoF7z89)
