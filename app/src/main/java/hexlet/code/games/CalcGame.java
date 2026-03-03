@@ -1,8 +1,12 @@
 package hexlet.code.games;
 
+import java.security.SecureRandom;
+import java.util.Random;
+
 public class CalcGame implements Game {
     private static final int MAX_NUMBER = 100;
     private static final char[] OPERATIONS = {'+', '-', '*'};
+    private final Random random = new SecureRandom();
 
     @Override
     public String getRule() {
