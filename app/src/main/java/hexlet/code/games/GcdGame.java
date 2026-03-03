@@ -1,30 +1,34 @@
 package hexlet.code.games;
 
-public class GcdGame implements Game {
-    @Override
-    public String getRule() {
+import hexlet.code.utils.RandomUtils;
+
+public final class GcdGame {
+    private static final int MAX_NUMBER = 100;
+
+    private GcdGame() {
+    }
+
+    public static String getRule() {
         return "Find the greatest common divisor of given numbers.";
     }
 
-    @Override
-    public String getQuestion() {
-        int first = RANDOM.nextInt(MAX_NUMBER);
-        int second = RANDOM.nextInt(MAX_NUMBER);
-        return first + " " + second;
+    public static String[] getRoundData() {
+        int first = RandomUtils.nextInt(MAX_NUMBER);
+        int second = RandomUtils.nextInt(MAX_NUMBER);
+        String question = first + " " + second;
+        String answer = String.valueOf(findGcd(first, second));
+        return new String[]{question, answer};
     }
 
-    @Override
-    public String getCorrectAnswer(String question) {
-        String[] parts = question.split(" ");
-        int first = Integer.parseInt(parts[0]);
-        int second = Integer.parseInt(parts[1]);
-        return String.valueOf(findGcd(first, second));
-    }
+    private static int findGcd(int first, int second) {
+        int a = Math.abs(first);
+        int b = Math.abs(second);
 
-    private int findGcd(int num1, int num2) {
-        if (num2 == 0) {
-            return num1;
+        while (b != 0) {
+            int remainder = a % b;
+            a = b;
+            b = remainder;
         }
-        return findGcd(num2, num1 % num2);
+        return a;
     }
 }

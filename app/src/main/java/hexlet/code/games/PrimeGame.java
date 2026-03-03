@@ -1,27 +1,40 @@
 package hexlet.code.games;
 
-import java.util.stream.IntStream;
+import hexlet.code.utils.RandomUtils;
 
-public class PrimeGame implements Game {
-    @Override
-    public String getRule() {
+public final class PrimeGame {
+    private static final int MAX_NUMBER = 100;
+
+    private PrimeGame() {
+    }
+
+    public static String getRule() {
         return "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     }
 
-    @Override
-    public String getQuestion() {
-        return String.valueOf(RANDOM.nextInt(MAX_NUMBER));
+    public static String[] getRoundData() {
+        int number = RandomUtils.nextInt(MAX_NUMBER);
+        String question = String.valueOf(number);
+        String answer = isPrime(number) ? "yes" : "no";
+        return new String[]{question, answer};
     }
 
-    @Override
-    public String getCorrectAnswer(String question) {
-        int number = Integer.parseInt(question);
-        return isPrime(number) ? "yes" : "no";
-    }
+    private static boolean isPrime(int number) {
+        if (number < 2) {
+            return false;
+        }
+        if (number == 2) {
+            return true;
+        }
+        if (number % 2 == 0) {
+            return false;
+        }
 
-    private boolean isPrime(int number) {
-        return number > 1
-                && IntStream.rangeClosed(2, (int) Math.sqrt(number))
-                .noneMatch(n -> (number % n == 0));
+        for (int divider = 3; divider * divider <= number; divider += 2) {
+            if (number % divider == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }

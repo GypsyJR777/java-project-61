@@ -1,19 +1,21 @@
 package hexlet.code.games;
 
-public class EvenGame implements Game {
-    @Override
-    public String getRule() {
+import hexlet.code.utils.RandomUtils;
+
+public final class EvenGame {
+    private static final int MAX_NUMBER = 100;
+
+    private EvenGame() {
+    }
+
+    public static String getRule() {
         return "Answer 'yes' if the number is even, otherwise answer 'no'.";
     }
 
-    @Override
-    public String getQuestion() {
-        return String.valueOf(RANDOM.nextInt(MAX_NUMBER));
-    }
-
-    @Override
-    public String getCorrectAnswer(String question) {
-        int number = Integer.parseInt(question);
-        return number % 2 == 0 ? "yes" : "no";
+    public static String[] getRoundData() {
+        int number = RandomUtils.nextInt(MAX_NUMBER);
+        String question = String.valueOf(number);
+        String answer = number % 2 == 0 ? "yes" : "no";
+        return new String[]{question, answer};
     }
 }
