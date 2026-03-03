@@ -4,6 +4,8 @@ import hexlet.code.utils.RandomUtils;
 
 public final class PrimeGame {
     private static final int MAX_NUMBER = 100;
+    private static final int FIRST_ODD_DIVISOR = 3;
+    private static final int DIVISOR_STEP = 2;
 
     private PrimeGame() {
     }
@@ -30,7 +32,7 @@ public final class PrimeGame {
             return false;
         }
 
-        for (int divider = 3; divider * divider <= number; divider += 2) {
+        for (int divider = FIRST_ODD_DIVISOR; divider * divider <= number; divider += DIVISOR_STEP) {
             if (number % divider == 0) {
                 return false;
             }

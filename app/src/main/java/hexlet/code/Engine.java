@@ -14,7 +14,7 @@ final class Engine {
     private Engine() {
     }
 
-    public static void run(int gameId, Scanner scanner) {
+    public static void run(GameId gameId, Scanner scanner) {
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
         String name = scanner.next();
@@ -42,24 +42,24 @@ final class Engine {
         System.out.println("Congratulations, " + name + "!");
     }
 
-    private static String getRule(int gameId) {
+    private static String getRule(GameId gameId) {
         return switch (gameId) {
-            case 2 -> EvenGame.getRule();
-            case 3 -> CalcGame.getRule();
-            case 4 -> GcdGame.getRule();
-            case 5 -> ProgressionGame.getRule();
-            case 6 -> PrimeGame.getRule();
+            case EVEN -> EvenGame.getRule();
+            case CALC -> CalcGame.getRule();
+            case GCD -> GcdGame.getRule();
+            case PROGRESSION -> ProgressionGame.getRule();
+            case PRIME -> PrimeGame.getRule();
             default -> "";
         };
     }
 
-    private static String[] getRoundData(int gameId) {
+    private static String[] getRoundData(GameId gameId) {
         return switch (gameId) {
-            case 2 -> EvenGame.getRoundData();
-            case 3 -> CalcGame.getRoundData();
-            case 4 -> GcdGame.getRoundData();
-            case 5 -> ProgressionGame.getRoundData();
-            case 6 -> PrimeGame.getRoundData();
+            case EVEN -> EvenGame.getRoundData();
+            case CALC -> CalcGame.getRoundData();
+            case GCD -> GcdGame.getRoundData();
+            case PROGRESSION -> ProgressionGame.getRoundData();
+            case PRIME -> PrimeGame.getRoundData();
             default -> new String[]{"", ""};
         };
     }
