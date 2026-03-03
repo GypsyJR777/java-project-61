@@ -12,9 +12,9 @@ public enum GameId {
     private final int code;
     private final String title;
 
-    GameId(int code, String title) {
-        this.code = code;
-        this.title = title;
+    GameId(int gameCode, String gameTitle) {
+        this.code = gameCode;
+        this.title = gameTitle;
     }
 
     public int getCode() {
