@@ -21,3 +21,7 @@
 ### Progression Demo
 
 [![asciicast](https://asciinema.org/a/ejNl9CGAxuoF7z89.svg)](https://asciinema.org/a/ejNl9CGAxuoF7z89)
+
+### Prime Demo
+
+[![asciicast](https://asciinema.org/a/zI3nzPHaj9VlCIUl.svg)](https://asciinema.org/a/zI3nzPHaj9VlCIUl)
