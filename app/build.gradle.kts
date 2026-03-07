@@ -48,3 +48,9 @@ sonar {
         property("sonar.organization", "gypsyjr777")
     }
 }
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(21))
+    }
+}
