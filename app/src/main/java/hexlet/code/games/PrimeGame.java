@@ -10,14 +10,14 @@ public final class PrimeGame {
 
     public static void run(Scanner scanner) {
         final int maxNumber = 100;
-        final int roundsCount = 3;
+        final int roundsLimit = 3;
         final int pairSize = 2;
         final int questionIndex = 0;
         final int answerIndex = 1;
         final String rule = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
-        String[][] rounds = new String[roundsCount][pairSize];
-        for (int round = 0; round < roundsCount; round++) {
+        String[][] rounds = new String[roundsLimit][pairSize];
+        for (int round = 0; round < roundsLimit; round++) {
             int number = RandomUtils.nextInt(maxNumber);
             rounds[round][questionIndex] = String.valueOf(number);
             rounds[round][answerIndex] = isPrime(number) ? "yes" : "no";

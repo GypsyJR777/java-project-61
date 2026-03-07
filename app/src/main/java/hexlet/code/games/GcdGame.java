@@ -9,19 +9,19 @@ public final class GcdGame {
     }
 
     public static void run(Scanner scanner) {
-        final int maxNumber = 100;
+        final int numberMax = 100;
         final int roundsCount = 3;
         final int pairSize = 2;
-        final int questionIndex = 0;
-        final int answerIndex = 1;
+        final int qIndex = 0;
+        final int aIndex = 1;
         final String rule = "Find the greatest common divisor of given numbers.";
 
         String[][] rounds = new String[roundsCount][pairSize];
         for (int round = 0; round < roundsCount; round++) {
-            int first = RandomUtils.nextInt(maxNumber);
-            int second = RandomUtils.nextInt(maxNumber);
-            rounds[round][questionIndex] = first + " " + second;
-            rounds[round][answerIndex] = String.valueOf(findGcd(first, second));
+            int first = RandomUtils.nextInt(numberMax);
+            int second = RandomUtils.nextInt(numberMax);
+            rounds[round][qIndex] = first + " " + second;
+            rounds[round][aIndex] = String.valueOf(findGcd(first, second));
         }
 
         Engine.run(rule, rounds, scanner);
