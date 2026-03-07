@@ -1,23 +1,30 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
 import hexlet.code.utils.RandomUtils;
+import java.util.Scanner;
 
 public final class GcdGame {
-    private static final int MAX_NUMBER = 100;
-
     private GcdGame() {
     }
 
-    public static String getRule() {
-        return "Find the greatest common divisor of given numbers.";
-    }
+    public static void run(Scanner scanner) {
+        final int maxNumber = 100;
+        final int roundsCount = 3;
+        final int pairSize = 2;
+        final int questionIndex = 0;
+        final int answerIndex = 1;
+        final String rule = "Find the greatest common divisor of given numbers.";
 
-    public static String[] getRoundData() {
-        int first = RandomUtils.nextInt(MAX_NUMBER);
-        int second = RandomUtils.nextInt(MAX_NUMBER);
-        String question = first + " " + second;
-        String answer = String.valueOf(findGcd(first, second));
-        return new String[]{question, answer};
+        String[][] rounds = new String[roundsCount][pairSize];
+        for (int round = 0; round < roundsCount; round++) {
+            int first = RandomUtils.nextInt(maxNumber);
+            int second = RandomUtils.nextInt(maxNumber);
+            rounds[round][questionIndex] = first + " " + second;
+            rounds[round][answerIndex] = String.valueOf(findGcd(first, second));
+        }
+
+        Engine.run(rule, rounds, scanner);
     }
 
     private static int findGcd(int first, int second) {

@@ -1,5 +1,10 @@
 package hexlet.code;
 
+import hexlet.code.games.CalcGame;
+import hexlet.code.games.EvenGame;
+import hexlet.code.games.GcdGame;
+import hexlet.code.games.PrimeGame;
+import hexlet.code.games.ProgressionGame;
 import java.util.Scanner;
 
 class App {
@@ -19,12 +24,24 @@ class App {
                 Cli.hello();
                 break;
             case EVEN:
+                System.out.println();
+                EvenGame.run(scanner);
+                break;
             case CALC:
+                System.out.println();
+                CalcGame.run(scanner);
+                break;
             case GCD:
+                System.out.println();
+                GcdGame.run(scanner);
+                break;
             case PROGRESSION:
+                System.out.println();
+                ProgressionGame.run(scanner);
+                break;
             case PRIME:
                 System.out.println();
-                Engine.run(gameId, scanner);
+                PrimeGame.run(scanner);
                 break;
             default:
                 break;

@@ -1,30 +1,24 @@
 package hexlet.code;
 
-import hexlet.code.games.CalcGame;
-import hexlet.code.games.EvenGame;
-import hexlet.code.games.GcdGame;
-import hexlet.code.games.PrimeGame;
-import hexlet.code.games.ProgressionGame;
-
 import java.util.Scanner;
 
-final class Engine {
-    private static final int ROUNDS_COUNT = 3;
-
+public final class Engine {
     private Engine() {
     }
 
-    public static void run(GameId gameId, Scanner scanner) {
+    public static void run(String rule, String[][] rounds, Scanner scanner) {
+        final int questionIndex = 0;
+        final int answerIndex = 1;
+
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
         String name = scanner.next();
         System.out.println("Hello, " + name + "!");
-        System.out.println(getRule(gameId));
+        System.out.println(rule);
 
-        for (int round = 0; round < ROUNDS_COUNT; round++) {
-            String[] roundData = getRoundData(gameId);
-            String question = roundData[0];
-            String correctAnswer = roundData[1];
+        for (String[] roundData : rounds) {
+            String question = roundData[questionIndex];
+            String correctAnswer = roundData[answerIndex];
             System.out.println("Question: " + question);
             System.out.print("Your answer: ");
             String userAnswer = scanner.next();
@@ -40,27 +34,5 @@ final class Engine {
         }
 
         System.out.println("Congratulations, " + name + "!");
-    }
-
-    private static String getRule(GameId gameId) {
-        return switch (gameId) {
-            case EVEN -> EvenGame.getRule();
-            case CALC -> CalcGame.getRule();
-            case GCD -> GcdGame.getRule();
-            case PROGRESSION -> ProgressionGame.getRule();
-            case PRIME -> PrimeGame.getRule();
-            default -> "";
-        };
-    }
-
-    private static String[] getRoundData(GameId gameId) {
-        return switch (gameId) {
-            case EVEN -> EvenGame.getRoundData();
-            case CALC -> CalcGame.getRoundData();
-            case GCD -> GcdGame.getRoundData();
-            case PROGRESSION -> ProgressionGame.getRoundData();
-            case PRIME -> PrimeGame.getRoundData();
-            default -> new String[]{"", ""};
-        };
     }
 }

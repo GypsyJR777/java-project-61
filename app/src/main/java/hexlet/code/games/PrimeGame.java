@@ -1,38 +1,47 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
 import hexlet.code.utils.RandomUtils;
+import java.util.Scanner;
 
 public final class PrimeGame {
-    private static final int MAX_NUMBER = 100;
-    private static final int FIRST_ODD_DIVISOR = 3;
-    private static final int DIVISOR_STEP = 2;
-
     private PrimeGame() {
     }
 
-    public static String getRule() {
-        return "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-    }
+    public static void run(Scanner scanner) {
+        final int maxNumber = 100;
+        final int roundsCount = 3;
+        final int pairSize = 2;
+        final int questionIndex = 0;
+        final int answerIndex = 1;
+        final String rule = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
-    public static String[] getRoundData() {
-        int number = RandomUtils.nextInt(MAX_NUMBER);
-        String question = String.valueOf(number);
-        String answer = isPrime(number) ? "yes" : "no";
-        return new String[]{question, answer};
+        String[][] rounds = new String[roundsCount][pairSize];
+        for (int round = 0; round < roundsCount; round++) {
+            int number = RandomUtils.nextInt(maxNumber);
+            rounds[round][questionIndex] = String.valueOf(number);
+            rounds[round][answerIndex] = isPrime(number) ? "yes" : "no";
+        }
+
+        Engine.run(rule, rounds, scanner);
     }
 
     private static boolean isPrime(int number) {
-        if (number < 2) {
+        final int firstPrime = 2;
+        final int firstOddDivisor = 3;
+        final int divisorStep = 2;
+
+        if (number < firstPrime) {
             return false;
         }
-        if (number == 2) {
+        if (number == firstPrime) {
             return true;
         }
-        if (number % 2 == 0) {
+        if (number % firstPrime == 0) {
             return false;
         }
 
-        for (int divider = FIRST_ODD_DIVISOR; divider * divider <= number; divider += DIVISOR_STEP) {
+        for (int divider = firstOddDivisor; divider * divider <= number; divider += divisorStep) {
             if (number % divider == 0) {
                 return false;
             }
