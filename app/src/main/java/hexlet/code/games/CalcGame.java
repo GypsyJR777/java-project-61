@@ -26,7 +26,7 @@ public final class CalcGame {
                 case '+' -> left + right;
                 case '-' -> left - right;
                 case '*' -> left * right;
-                default -> 0;
+                default -> throw new RuntimeException("Unknown operator " + operation);
             };
 
             rounds[round][questionIndex] = left + " " + operation + " " + right;

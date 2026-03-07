@@ -44,7 +44,7 @@ class App {
                 PrimeGame.run(scanner);
                 break;
             default:
-                break;
+                throw new RuntimeException("Unexpected game value: " + gameId);
         }
     }
 
