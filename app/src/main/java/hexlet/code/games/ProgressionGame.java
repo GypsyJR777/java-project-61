@@ -22,33 +22,22 @@ public final class ProgressionGame {
         for (int round = 0; round < roundsCount; round++) {
             int start = RandomUtils.nextInt(maxNumber);
             int step = RandomUtils.nextInt(1, stepBound + 1);
-            int[] progression = generateProgression(start, step, progressionLength);
+            String[] progression = generateProgression(start, step, progressionLength);
             int hiddenIndex = RandomUtils.nextInt(progressionLength);
-            int hiddenValue = progression[hiddenIndex];
+            String hiddenValue = progression[hiddenIndex];
+            progression[hiddenIndex] = "..";
 
-            StringBuilder question = new StringBuilder();
-            for (int index = 0; index < progressionLength; index++) {
-                if (index > 0) {
-                    question.append(' ');
-                }
-                if (index == hiddenIndex) {
-                    question.append("..");
-                } else {
-                    question.append(progression[index]);
-                }
-            }
-
-            rounds[round][questionIndex] = question.toString();
-            rounds[round][answerIndex] = String.valueOf(hiddenValue);
+            rounds[round][questionIndex] = String.join(" ", progression);
+            rounds[round][answerIndex] = hiddenValue;
         }
 
         Engine.run(rule, rounds, scanner);
     }
 
-    private static int[] generateProgression(int start, int step, int length) {
-        int[] progression = new int[length];
+    private static String[] generateProgression(int start, int step, int length) {
+        String[] progression = new String[length];
         for (int index = 0; index < length; index++) {
-            progression[index] = start + index * step;
+            progression[index] = String.valueOf(start + index * step);
         }
         return progression;
     }
