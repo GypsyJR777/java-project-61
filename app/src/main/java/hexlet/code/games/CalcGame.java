@@ -22,17 +22,21 @@ public final class CalcGame {
             int left = RandomUtils.nextInt(maxNumber);
             int right = RandomUtils.nextInt(maxNumber);
             char operation = operations[RandomUtils.nextInt(operations.length)];
-            int result = switch (operation) {
-                case '+' -> left + right;
-                case '-' -> left - right;
-                case '*' -> left * right;
-                default -> throw new RuntimeException("Unknown operator " + operation);
-            };
+            int result = calculateExpression(left, right, operation);
 
             rounds[round][questionIndex] = left + " " + operation + " " + right;
             rounds[round][answerIndex] = String.valueOf(result);
         }
 
         Engine.run(rule, rounds, scanner);
+    }
+
+    private static int calculateExpression(int left, int right, char operation) {
+        return switch (operation) {
+            case '+' -> left + right;
+            case '-' -> left - right;
+            case '*' -> left * right;
+            default -> throw new RuntimeException("Unknown operator " + operation);
+        };
     }
 }
